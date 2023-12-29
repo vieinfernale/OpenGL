@@ -28,8 +28,8 @@
             - glfw3.lib; 
             - glew32.lib;
         - Windows Libraries Linker Errors: opengl32.lib; User32.lib; Gdi32.lib; Shell32.lib;
-    - GLEW .dll Library
-        - Copy GLEW\bin\Release\x64\glew32.dll and paste inside C:\Windows\System32 ( cd %SystemRoot%\System32 )
+    - GLEW dynamic .dll Library
+        - Copy GLEW\bin\Release\x64\glew32.dll and paste inside C:\Windows\System32 (%SystemRoot%\System32)
     - GLEW static Library
         - glew32s.lib
         - C/C++ - Preprocessor - Preprocessor Definitions: GLEW_STATIC;
@@ -40,6 +40,11 @@
 - Open the .sln file with Visual Studio
 - Output gives more detail than the Error List
 - Copy the name of the Function that gives the error inside Output and search it on the [Microsoft Documentation](https://learn.microsoft.com/en-us/search/) for the Windows Library to add to Linker - Input - Dependencies.
+
+## Git 
+- Create a Local Repository inside Visual Studio
+- Create a Git Repository without files inside Github
+- Add the Remote link to Visual Studio and Push
 
 ## Resources
 - OpenGL - The Cherno
