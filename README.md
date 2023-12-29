@@ -42,9 +42,10 @@
 - Copy the name of the Function that gives the error inside Output and search it on the [Microsoft Documentation](https://learn.microsoft.com/en-us/search/) for the Windows Library to add to Linker - Input - Dependencies.
 
 ## Git 
-- Create a Local Repository inside Visual Studio
+- Create a Local Repository inside Visual Studio 
 - Create a Git Repository without files inside Github
 - Add the Remote link to Visual Studio and Push
+- Add the default Visual Studio .gitignore file when creating the local repository 
 
 ## Resources
 - OpenGL - The Cherno
