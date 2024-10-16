@@ -23,15 +23,19 @@
 ### Link the libraries
 - Link GLFW and GLEW libraries for MinGW64 (GCC) and x64 and include library flags for glfw, glew, opengl, and windows:
 ```batch
-g++ opengl.cpp -o opengl -L"C:\Users\Wes\Desktop\OpenGL\GLFW\lib\lib-mingw-w64" -L"C:\Users\Wes\Desktop\OpenGL\GLEW\lib\x64" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
+g++ opengl.cpp -o opengl -L"%cd%\GLFW\lib\lib-mingw-w64" -L"%cd%\GLEW\lib\x64" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
 ```
 
 # Batch Script (Windows: .bat .cmd) Bash Script (Linux MacOS: .sh)
 ```batch
 @echo off
-set PROJECT_DIRECTORY=C:\Users\Wes\Desktop\OpenGL
+:: Set PROJECT_DIRECTORY to the current directory of the batch file
+:: %~dp0 : permanent directory containing the batch script.
+:: %cd% : current working directory of the Command Prompt session at the time of execution.
+set PROJECT_DIRECTORY=%~dp0
 g++ opengl.cpp -o opengl -L"%PROJECT_DIRECTORY%\GLFW\lib\lib-mingw-w64" -L"%PROJECT_DIRECTORY%\GLEW\lib\x64" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32 
 pause
+:: Script to Compile & Run the C++ file with the OpenGL library
 ```
 
 ## Visual Studio
