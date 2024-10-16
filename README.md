@@ -3,6 +3,7 @@
 ## Environment
 - [Visual Studio](https://visualstudio.microsoft.com/)
 - [Visual Studio Code](https://code.visualstudio.com/docs/cpp/config-mingw)
+- C++ Compiler: MinGW64 / GCC
 
 ## Libraries
 - Window: [GLFW](https://www.glfw.org)
@@ -13,20 +14,23 @@
 - [GLFW](https://www.glfw.org/documentation.html)
 - [GLEW](https://glew.sourceforge.net/install.html)
 
-# CMD
+# Build (Compile and Run)
+
 - Download GLFW and GLEW binaries.
+
 ### Include the local headers
 ```cpp
 #include ".\GLEW\include\GL\glew.h"
 #include ".\GLFW\include\GLFW\glfw3.h"
 ```
 ### Link the libraries
-- Link GLFW and GLEW libraries for MinGW64 (GCC) and x64 and include library flags for glfw, glew, opengl, and windows:
+- Link the GLFW and GLEW libraries for the Windows C++ Compiler MinGW64 / GCC and include library flags for glfw, glew, opengl, and windows:
+
+## CMD
 ```batch
 g++ opengl.cpp -o opengl -L"%cd%\GLFW\lib\lib-mingw-w64" -L"%cd%\GLEW\lib\x64" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
 ```
-
-# Batch Script (Windows: .bat .cmd) Bash Script (Linux MacOS: .sh)
+## Batch Script (Windows: .bat .cmd) Bash Script (Linux MacOS: .sh)
 ```batch
 @echo off
 :: Set PROJECT_DIRECTORY to the current directory of the batch file
