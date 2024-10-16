@@ -61,6 +61,8 @@ pause
         - C/C++ - Preprocessor - Preprocessor Definitions: GLEW_STATIC;
 
 ## Resources
-- OpenGL - The Cherno
+- OpenGL : The Cherno
+- Ray Tracing in One Weekend
+- Raytracing : Inigo Quilez
 
 
