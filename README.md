@@ -2,6 +2,7 @@
 
 ## Environment
 - [Visual Studio](https://visualstudio.microsoft.com/)
+- [Visual Studio Code](https://code.visualstudio.com/docs/cpp/config-mingw)
 
 ## Libraries
 - Window: [GLFW](https://www.glfw.org)
@@ -12,7 +13,28 @@
 - [GLFW](https://www.glfw.org/documentation.html)
 - [GLEW](https://glew.sourceforge.net/install.html)
 
-## Setup
+# CMD
+- Download GLFW and GLEW binaries.
+### Include the local headers
+```cpp
+#include ".\GLEW\include\GL\glew.h"
+#include ".\GLFW\include\GLFW\glfw3.h"
+```
+### Link the libraries
+- Link GLFW and GLEW libraries for MinGW64 (GCC) and x64 and include library flags for glfw, glew, opengl, and windows:
+```batch
+g++ opengl.cpp -o opengl -L"C:\Users\Wes\Desktop\OpenGL\GLFW\lib\lib-mingw-w64" -L"C:\Users\Wes\Desktop\OpenGL\GLEW\lib\x64" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
+```
+
+# Batch Script (Windows: .bat .cmd) Bash Script (Linux MacOS: .sh)
+```batch
+@echo off
+set PROJECT_DIRECTORY=C:\Users\Wes\Desktop\OpenGL
+g++ opengl.cpp -o opengl -L"%PROJECT_DIRECTORY%\GLFW\lib\lib-mingw-w64" -L"%PROJECT_DIRECTORY%\GLEW\lib\x64" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32 
+pause
+```
+
+## Visual Studio
 - Download the GLFW and GLEW binaries and put them inside the project or solution directory
 - Start a new C++ project inside Visual Studio and add a new .cpp file to the project
 - Open the Properties of the OpenGL Project and set to All Configurations
@@ -33,19 +55,6 @@
     - GLEW static Library
         - glew32s.lib
         - C/C++ - Preprocessor - Preprocessor Definitions: GLEW_STATIC;
-
-
-## Misc
-- F5: Build (Compile and Link)
-- Open the .sln file with Visual Studio
-- Output gives more detail than the Error List
-- Copy the name of the Function that gives the error inside Output and search it on the [Microsoft Documentation](https://learn.microsoft.com/en-us/search/) for the Windows Library to add to Linker - Input - Dependencies.
-
-## Git 
-- Create a Local Repository inside Visual Studio 
-- Create a Git Repository without files inside Github
-- Add the Remote link to Visual Studio and Push
-- Add the default Visual Studio .gitignore file when creating the local repository 
 
 ## Resources
 - OpenGL - The Cherno
