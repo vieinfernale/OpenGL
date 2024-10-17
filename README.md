@@ -14,14 +14,22 @@
 - [GLFW](https://www.glfw.org/documentation.html)
 - [GLEW](https://glew.sourceforge.net/install.html)
 
+## Resources
+- Learnopengl
+- OpenGL : The Cherno
+- Ray Tracing in One Weekend
+- Raytracing : Inigo Quilez
+
 # Build (Compile and Run)
 
 - Download GLFW and GLEW binaries.
+- Download GLM and include the glm directory with the headers inside the project directory.
 
 ### Include the local headers
 ```cpp
 #include ".\GLEW\include\GL\glew.h"
 #include ".\GLFW\include\GLFW\glfw3.h"
+#include ".\glm\glm.hpp"
 ```
 ### Link the libraries
 - Link the GLFW and GLEW libraries for the Windows C++ Compiler MinGW64 / GCC and include library flags for glfw, glew, opengl, and windows:
@@ -63,10 +71,5 @@ pause
     - GLEW static Library
         - glew32s.lib
         - C/C++ - Preprocessor - Preprocessor Definitions: GLEW_STATIC;
-
-## Resources
-- OpenGL : The Cherno
-- Ray Tracing in One Weekend
-- Raytracing : Inigo Quilez
 
 
