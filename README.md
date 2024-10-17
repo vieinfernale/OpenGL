@@ -43,25 +43,24 @@ pause
 ```
 
 ## Visual Studio
-- Download the GLFW and GLEW binaries and put them inside the project or solution directory
-- Start a new C++ project inside Visual Studio and add a new .cpp file to the project
-- Open the Properties of the OpenGL Project and set to All Configurations
-    - Include Directory
-        - C/C++ - General - Include Directories: 
-            - $(SolutionDir)GLFW\include; 
-            - $(SolutionDir)GLEW\include;
-    - Library Directory
-        - Linker - General - Library Directory:  
-            - $(SolutionDir)GLFW\lib-vc2022; 
-            - $(SolutionDir)GLEW\lib\Release\x64;
-        - Linker - Input - Dependencies: 
-            - glfw3.lib; 
-            - glew32.lib;
-        - Windows Libraries Linker Errors: opengl32.lib; User32.lib; Gdi32.lib; Shell32.lib;
-    - GLEW dynamic .dll Library
-        - Copy GLEW\bin\Release\x64\glew32.dll and paste inside C:\Windows\System32 (%SystemRoot%\System32)
-    - GLEW static Library
-        - glew32s.lib
-        - C/C++ - Preprocessor - Preprocessor Definitions: GLEW_STATIC;
+### Configuration Properties: VC++ Directories
+- Include Directories 
+    - $(SolutionDir)GLFW\include; 
+    - $(SolutionDir)GLEW\include;
+- Library Directories  
+    - $(SolutionDir)GLFW\lib-vc2022; 
+    - $(SolutionDir)GLEW\lib\Release\x64;     
+### Linker: Input 
+- Additional Dependencies: 
+    - glfw3.lib; 
+    - glew32.lib;
+    - Opengl: opengl32.lib;
+    - Windows Libraries: User32.lib; Gdi32.lib; Shell32.lib;
+### Include the local Header Files (.h or .hpp)
+```cpp
+#include <GL\glew.h>
+#include <GLFW\glfw3.h>
+#include ".\glm\glm.hpp"
+```
 
 
