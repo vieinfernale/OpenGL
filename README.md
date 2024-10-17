@@ -9,16 +9,7 @@
 - Window: [GLFW](https://www.glfw.org)
 - Functions: [GLEW](https://glew.sourceforge.net/) 
 - Windows Libraries: [Microsoft Documentation](https://learn.microsoft.com/en-us/search/)
-
-## Documentation
-- [GLFW](https://www.glfw.org/documentation.html)
-- [GLEW](https://glew.sourceforge.net/install.html)
-
-## Resources
-- Learnopengl
-- OpenGL : The Cherno
-- Ray Tracing in One Weekend
-- Raytracing : Inigo Quilez
+- Math: [GLM](https://github.com/g-truc/glm)
 
 # Build (Compile and Run)
 
