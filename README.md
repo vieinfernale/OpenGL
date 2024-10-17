@@ -16,13 +16,14 @@
 - Download GLFW and GLEW binaries.
 - Download GLM and include the glm directory with the headers inside the project directory.
 
-### Include the local headers
+### Include the local Header Files (.h or .hpp)
 ```cpp
 #include ".\GLEW\include\GL\glew.h"
 #include ".\GLFW\include\GLFW\glfw3.h"
 #include ".\glm\glm.hpp"
 ```
-### Link the libraries
+### Link the Library Files (.lib, .a, or .dll)
+- Libraries contain the compiled implementations of the functions declared in the header files.
 - Link the GLFW and GLEW libraries for the Windows C++ Compiler MinGW64 / GCC and include library flags for glfw, glew, opengl, and windows:
 
 ## CMD
