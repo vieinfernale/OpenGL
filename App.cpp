@@ -198,7 +198,7 @@ int main()
     }
 
     /* Shader */
-    Shader Shader("vertex_shader.glsl", "fragment_shader.glsl");
+    Shader Shader("./GLSL/vertex_shader.glsl", "./GLSL/fragment_shader.glsl");
     Shader.shaderProgram();
     Shader.shaderBuffers();
 
