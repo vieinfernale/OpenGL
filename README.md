@@ -6,7 +6,7 @@
 - [Mingw-w64](https://www.mingw-w64.org/downloads/)
 
 ## Libraries
-- Window: [GLFW](https://www.glfw.org)
+- Window: [GLFW](https://www.glfw.org/download.html)
 - Functions: [GLEW](https://glew.sourceforge.net/) 
 - Windows Libraries: [Microsoft Documentation](https://learn.microsoft.com/en-us/search/)
 - Math: [GLM](https://github.com/g-truc/glm)
@@ -14,9 +14,11 @@
 
 # Build and Compile the Libraries
 - [CMake](https://cmake.org/download/)
-- Download the binaries or clone the repository, build with cmake and compile with mingw (gcc) or visual studio (.sln file).
+- Download the binaries or clone the repository, build with cmake and compile with mingw64 (gcc) or visual studio (.sln file).
 - Save the library files (.lib .a = static, .dll = dynamic) into the lib directory. 
+- GLFW: git clone repository, cd glfw, cmake -G "MinGW Makefiles", mingw32-make, copy libglfw3.a to the lib folder
 - GLM: git clone repository, cd glm, mkdir build, cmake ., cd build, cmake --build ., copy glm folder to the include folder
+- Assimp: git clone repository, cmake -DBUILD_SHARED_LIBS=OFF ., cmake --build ., copy files in include and lib
 
 ### Include the local Header Files (.h or .hpp)
 ```cpp

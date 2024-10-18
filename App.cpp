@@ -1,6 +1,7 @@
 #include <GL\glew.h>             // GLEW for OpenGL functions
 #include <GLFW\glfw3.h>          // GLFW for window and context management
-#include <glm\glm.hpp>           // GLM for mathematics
+#include <glm/glm.hpp>           // Include all GLM core / GLSL features
+#include <glm/ext.hpp>           // Include all GLM extensions
 #include <assimp\camera.h>
 
 #include <iostream>
