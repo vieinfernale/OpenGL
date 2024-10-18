@@ -24,11 +24,11 @@
 
 ### Include the local Header Files (.h or .hpp)
 ```cpp
-#include <GL\glew.h>                  // GLEW for OpenGL functions
-#include <GLFW\glfw3.h>               // GLFW for window and context management
-#include <glm/glm.hpp>                // Include all GLM core / GLSL features
-#include <glm/ext.hpp>                // Include all GLM extensions
-#include <assimp\assimp_functions.h>  // Include specific assimp functions
+#include <GL/glew.h>             // GLEW for OpenGL functions
+#include <GLFW/glfw3.h>          // GLFW for window and context management
+#include <glm/glm.hpp>           // Include all GLM core / GLSL features
+#include <glm/ext.hpp>           // Include all GLM extensions
+#include <assimp/assimp_functions.h>  // Include specific assimp functions
 ```
 #### Include specific headers from a library
 ```cpp
@@ -51,7 +51,7 @@
 
 ### CMD
 ```batch
-g++ App.cpp -o App -I"%PROJECT_DIRECTORY%\include" -L"%cd%\lib" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
+g++ App.cpp -o App -I"%cd%\include" -L"%cd%\lib" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
 ```
 ### Batch Script (Windows: .bat .cmd) Bash Script (Linux MacOS: .sh)
 ```batch
