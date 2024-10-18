@@ -1,13 +1,14 @@
 #version 450 core
 
-out vec4 fragc;
-out vec2 fragt;
+out vec4 fragColor;
+out vec2 fragTex;
 
-in vec4 oc;  // The color from the vertex shader
-in vec2 ot;
+// Input from the vertex shader
+in vec4 outColor;
+in vec2 outTex;
 
 void main() 
 {
-    fragc = oc;  // Output the color to the framebuffer
-    fragt = ot;
+    fragColor = outColor;
+    fragTex = outTex;
 }
