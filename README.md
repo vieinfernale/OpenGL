@@ -63,11 +63,5 @@ pause
     - glew32.lib;
     - Opengl: opengl32.lib;
     - Windows Libraries: User32.lib; Gdi32.lib; Shell32.lib;
-### Include the local Header Files (.h or .hpp)
-```cpp
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
-#include ".\glm\glm.hpp"
-```
 
 
