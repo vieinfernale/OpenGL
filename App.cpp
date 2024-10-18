@@ -26,7 +26,7 @@ void sizeWindow(GLFWwindow* window, int width, int height)
 }
 
 // Create Window
-GLFWwindow* setupWindow () {
+GLFWwindow* createWindow () {
 
     // GLFW
     if (!glfwInit()) {
@@ -56,7 +56,7 @@ GLFWwindow* setupWindow () {
 int main()
 {  
     // GLFW 
-    GLFWwindow* window = setupWindow();
+    GLFWwindow* window = createWindow();
     if (!window) return -1;
 
     // GLEW
