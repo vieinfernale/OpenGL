@@ -24,11 +24,27 @@
 
 ### Include the local Header Files (.h or .hpp)
 ```cpp
-#include <GL\glew.h>      // GLEW for OpenGL functions
-#include <GLFW\glfw3.h>   // GLFW for window and context management
-#include <glm\glm.hpp>                 // GLM for mathematics (vec3, vec4, ...)
-#include <assimp\camera.h>
+#include <GL\glew.h>                  // GLEW for OpenGL functions
+#include <GLFW\glfw3.h>               // GLFW for window and context management
+#include <glm/glm.hpp>                // Include all GLM core / GLSL features
+#include <glm/ext.hpp>                // Include all GLM extensions
+#include <assimp\assimp_functions.h>  // Include specific assimp functions
 ```
+#### Include specific headers from a library
+```cpp
+// assimp_functions.h
+#ifndef ASSIMP_FUNCTIONS_H
+#define ASSIMP_FUNCTIONS_H
+
+// Include any other specific headers
+#include <assimp/Importer.hpp>
+#include <assimp/Exporter.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+
+#endif // ASSIMP_FUNCTIONS_H
+```
+
 ### Link the Library Files (.lib, .a, or .dll)
 - Libraries contain the compiled implementations of the functions declared in the header files.
 - Link the GLFW and GLEW libraries for the Windows C++ Compiler MinGW64 (GCC) and include library flags for glfw, glew, opengl, and windows:
