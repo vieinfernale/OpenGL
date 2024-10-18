@@ -1,8 +1,10 @@
 #include <GL/glew.h>                  // GLEW for OpenGL functions
 #include <GLFW/glfw3.h>               // GLFW for window and context management
-#include <glm/glm.hpp>                // Include all GLM core / GLSL features
+#include <glm/glm.hpp>                // Include all GLM core / GLSL features for math
 #include <glm/ext.hpp>                // Include all GLM extensions
-#include <assimp/assimp_functions.h>  // Include specific assimp functions
+#include <assimp/assimp_functions.h>  // Include specific assimp functions for 3D Models (Mesh)
+#define STB_IMAGE_IMPLEMENTATION      // Compile stb_image
+#include <stb_image/stb_image.h>      // Include stb_image for textures
 
 #include "Shader.h"
 

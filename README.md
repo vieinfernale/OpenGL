@@ -11,6 +11,7 @@
 - Windows Libraries: [Microsoft Documentation](https://learn.microsoft.com/en-us/search/)
 - Math: [GLM](https://github.com/g-truc/glm)
 - Model Loading: [Assimp](https://github.com/assimp/assimp)
+- Images: [stb_image](https://github.com/nothings/stb/blob/master/stb_image.h)
 
 ## Headers and Libraries
 
@@ -29,6 +30,16 @@
 #include <glm/glm.hpp>           // Include all GLM core / GLSL features
 #include <glm/ext.hpp>           // Include all GLM extensions
 #include <assimp/assimp_functions.h>  // Include specific assimp functions
+#define STB_IMAGE_IMPLEMENTATION      // Compile stb_image
+#include <stb_image/stb_image.h>      // Include stb_image for textures
+
+#include "Shader.h"              // Shader code
+
+#include <iostream>              // STD Libraries
+#include <vector>
+#include <string>
+#include <sstream>
+#include <fstream>
 ```
 #### Include specific headers from a library
 ```cpp
@@ -84,11 +95,3 @@ pause
     - glew32.lib;
     - Opengl: opengl32.lib;
     - Windows Libraries: User32.lib; Gdi32.lib; Shell32.lib;
-
-# Code
-
-## Window 
-- int main() returns int, so returning -1 indicates an error or abnormal termination of the program.
-- GLFWwindow* setupWindow() returns a pointer to a GLFWwindow object, and if the window creation fails, return nullptr indicates that no valid window object was created.
-
-
