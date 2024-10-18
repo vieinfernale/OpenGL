@@ -16,6 +16,7 @@
 - [CMake](https://cmake.org/download/)
 - Download the binaries or clone the repository, build with cmake and compile with mingw (gcc) or visual studio (.sln file).
 - Save the library files (.lib .a = static, .dll = dynamic) into the lib directory. 
+- GLM: git clone repository, cd glm, mkdir build, cmake ., cd build, cmake --build ., copy glm folder to the include folder
 
 ### Include the local Header Files (.h or .hpp)
 ```cpp
