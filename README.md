@@ -3,32 +3,34 @@
 ## Environment
 - [Visual Studio](https://visualstudio.microsoft.com/)
 - [Visual Studio Code](https://code.visualstudio.com/docs/cpp/config-mingw)
-- C++ Compiler: MinGW64 / GCC
+- [Mingw-w64](https://www.mingw-w64.org/downloads/)
 
 ## Libraries
 - Window: [GLFW](https://www.glfw.org)
 - Functions: [GLEW](https://glew.sourceforge.net/) 
 - Windows Libraries: [Microsoft Documentation](https://learn.microsoft.com/en-us/search/)
 - Math: [GLM](https://github.com/g-truc/glm)
+- Model Loading: [Assimp](https://github.com/assimp/assimp)
 
-# Build (Compile and Run)
-
-- Download GLFW and GLEW binaries.
-- Download GLM and include the glm directory with the headers inside the project directory.
+# Build and Compile the Libraries
+- [CMake](https://cmake.org/download/)
+- Download the binaries or clone the repository, build with cmake and compile with mingw (gcc) or visual studio (.sln file).
+- Save the library files (.lib .a = static, .dll = dynamic) into the lib directory. 
 
 ### Include the local Header Files (.h or .hpp)
 ```cpp
-#include ".\GLEW\include\GL\glew.h"
-#include ".\GLFW\include\GLFW\glfw3.h"
-#include ".\glm\glm.hpp"
+#include <GL\glew.h>      // GLEW for OpenGL functions
+#include <GLFW\glfw3.h>   // GLFW for window and context management
+#include <glm\glm.hpp>                 // GLM for mathematics (vec3, vec4, ...)
+#include <assimp\camera.h>
 ```
 ### Link the Library Files (.lib, .a, or .dll)
 - Libraries contain the compiled implementations of the functions declared in the header files.
-- Link the GLFW and GLEW libraries for the Windows C++ Compiler MinGW64 / GCC and include library flags for glfw, glew, opengl, and windows:
+- Link the GLFW and GLEW libraries for the Windows C++ Compiler MinGW64 (GCC) and include library flags for glfw, glew, opengl, and windows:
 
 ## CMD
 ```batch
-g++ App.cpp -o App -L"%cd%\GLFW\lib\lib-mingw-w64" -L"%cd%\GLEW\lib\x64" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
+g++ App.cpp -o App -I"%PROJECT_DIRECTORY%\include" -L"%cd%\lib" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
 ```
 ## Batch Script (Windows: .bat .cmd) Bash Script (Linux MacOS: .sh)
 ```batch
@@ -37,7 +39,12 @@ g++ App.cpp -o App -L"%cd%\GLFW\lib\lib-mingw-w64" -L"%cd%\GLEW\lib\x64" -lglfw3
 :: %~dp0 : permanent directory containing the batch script.
 :: %cd% : current working directory of the Command Prompt session at the time of execution.
 set PROJECT_DIRECTORY=%~dp0
-g++ App.cpp -o App -L"%PROJECT_DIRECTORY%\GLFW\lib\lib-mingw-w64" -L"%PROJECT_DIRECTORY%\GLEW\lib\x64" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32 
+
+g++ App.cpp -o App ^
+-I"%PROJECT_DIRECTORY%\include" ^
+-L"%PROJECT_DIRECTORY%\lib" ^
+-lglfw3 -lglew32 -lassimp -lopengl32 -luser32 -lgdi32 -lshell32
+
 pause
 :: Script to Compile & Run the C++ file with the OpenGL library
 ```
