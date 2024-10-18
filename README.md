@@ -1,8 +1,8 @@
 # OpenGL
 
-## Environment
+## IDE and Compiler
 - [Visual Studio](https://visualstudio.microsoft.com/)
-- [Visual Studio Code](https://code.visualstudio.com/docs/cpp/config-mingw)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - [Mingw-w64](https://www.mingw-w64.org/downloads/)
 
 ## Libraries
@@ -12,11 +12,13 @@
 - Math: [GLM](https://github.com/g-truc/glm)
 - Model Loading: [Assimp](https://github.com/assimp/assimp)
 
-# Build and Compile the Libraries
+## Headers and Libraries
+
+### Build and Compile the Libraries
 - [CMake](https://cmake.org/download/)
 - Download the binaries or clone the repository, build with cmake and compile with mingw64 (gcc) or visual studio (.sln file).
 - Save the library files (.lib .a = static, .dll = dynamic) into the lib directory. 
-- GLFW: git clone repository, cd glfw, cmake -G "MinGW Makefiles", mingw32-make, copy libglfw3.a to the lib folder
+- GLFW: git clone repository, cd glfw, cmake -G "MinGW Makefiles", mingw32-make, copy the include and libglfw3.a to the lib folder
 - GLM: git clone repository, cd glm, mkdir build, cmake ., cd build, cmake --build ., copy glm folder to the include folder
 - Assimp: git clone repository, cmake -DBUILD_SHARED_LIBS=OFF ., cmake --build ., copy files in include and lib
 
@@ -31,11 +33,11 @@
 - Libraries contain the compiled implementations of the functions declared in the header files.
 - Link the GLFW and GLEW libraries for the Windows C++ Compiler MinGW64 (GCC) and include library flags for glfw, glew, opengl, and windows:
 
-## CMD
+### CMD
 ```batch
 g++ App.cpp -o App -I"%PROJECT_DIRECTORY%\include" -L"%cd%\lib" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
 ```
-## Batch Script (Windows: .bat .cmd) Bash Script (Linux MacOS: .sh)
+### Batch Script (Windows: .bat .cmd) Bash Script (Linux MacOS: .sh)
 ```batch
 @echo off
 :: Set PROJECT_DIRECTORY to the current directory of the batch file
@@ -52,15 +54,15 @@ pause
 :: Script to Compile & Run the C++ file with the OpenGL library
 ```
 
-## Visual Studio
-### Configuration Properties: VC++ Directories
+### Visual Studio
+#### Configuration Properties: VC++ Directories
 - Include Directories 
     - $(SolutionDir)GLFW\include; 
     - $(SolutionDir)GLEW\include;
 - Library Directories  
     - $(SolutionDir)GLFW\lib-vc2022; 
     - $(SolutionDir)GLEW\lib\Release\x64;     
-### Linker: Input 
+#### Linker: Input 
 - Additional Dependencies: 
     - glfw3.lib; 
     - glew32.lib;
