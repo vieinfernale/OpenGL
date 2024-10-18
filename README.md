@@ -85,4 +85,10 @@ pause
     - Opengl: opengl32.lib;
     - Windows Libraries: User32.lib; Gdi32.lib; Shell32.lib;
 
+# Code
+
+## Window 
+- int main() returns int, so returning -1 indicates an error or abnormal termination of the program.
+- GLFWwindow* setupWindow() returns a pointer to a GLFWwindow object, and if the window creation fails, return nullptr indicates that no valid window object was created.
+
 
