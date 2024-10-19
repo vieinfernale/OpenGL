@@ -30,7 +30,7 @@
 #include <glm/glm.hpp>           // Include all GLM core / GLSL features
 #include <glm/ext.hpp>           // Include all GLM extensions
 #include <assimp/assimp_functions.h>  // Include specific assimp functions
-#define STB_IMAGE_IMPLEMENTATION      // Compile stb_image
+#define STB_IMAGE_IMPLEMENTATION      // Compile stb_image (include only inside Textures.h)
 #include <stb_image/stb_image.h>      // Include stb_image for textures
 
 #include "Shader.h"              // Shader code
