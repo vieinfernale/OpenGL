@@ -129,7 +129,7 @@ int main()
     }
 
     /* Texture */
-    unsigned int texture = loadTexture("./Archive/Images/Films (32).png");
+    unsigned int texture = loadTexture("./Archive/Images/Img.jpg");
 
     /* Shader */
     Shader Shader("./GLSL/vertex_shader.glsl", "./GLSL/fragment_shader.glsl");
@@ -146,12 +146,12 @@ int main()
         // Render
 
         /* Texture */
-        glActiveTexture(GL_TEXTURE0);
+        // glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture);
 
         /* Shader */
         Shader.shaderDraw();
-        Shader.setInt("fsTex", 0); 
+        // Shader.setInt("fsTex", 0); 
 
         // Render and Frozen screen
         glfwSwapBuffers(window);
