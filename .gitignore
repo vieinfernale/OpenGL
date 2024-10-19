@@ -12,3 +12,5 @@ bin-int/
 *.vcxproj.user
 *.vcxproj.filters
 *.sln
+## Git Large File Storage
+*.gitattributes
