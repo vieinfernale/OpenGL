@@ -62,7 +62,7 @@
 
 ### CMD
 ```batch
-g++ App.cpp -o App -I"%cd%\include" -L"%cd%\lib" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
+g++ App.cpp -o App -I"%cd%/include" -L"%cd%/lib" -lglfw3 -lglew32 -lopengl32 -luser32 -lgdi32 -lshell32
 ```
 ### Batch Script (Windows: .bat .cmd) Bash Script (Linux MacOS: .sh)
 ```batch
@@ -73,8 +73,8 @@ g++ App.cpp -o App -I"%cd%\include" -L"%cd%\lib" -lglfw3 -lglew32 -lopengl32 -lu
 set PROJECT_DIRECTORY=%~dp0
 
 g++ App.cpp -o App ^
--I"%PROJECT_DIRECTORY%\include" ^
--L"%PROJECT_DIRECTORY%\lib" ^
+-I"%PROJECT_DIRECTORY%/include" ^
+-L"%PROJECT_DIRECTORY%/lib" ^
 -lglfw3 -lglew32 -lassimp -lopengl32 -luser32 -lgdi32 -lshell32
 
 pause
