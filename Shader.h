@@ -25,10 +25,11 @@ struct Vertex {
 struct Shader {
 
     std::vector<Vertex> vertices;
+    std::vector<int> indices;
     std::string vertexShader;
     std::string fragmentShader;
     unsigned int shaderProgramID;
-    unsigned int VAO, VBO;
+    unsigned int VAO, VBO, EBO;
 
     // Constructor
     Shader (const std::string& vertexShaderPath, const std::string fragmentShaderPath) : shaderProgramID(0), VBO(0), VAO(0) 
@@ -43,6 +44,11 @@ struct Shader {
             {glm::vec3{0.0f, 0.5f, 0.0f}, glm::vec4{1.0f, 0.0f, 0.0f, 1.0f}, glm::vec2{0.0f, 0.0f}},
             {glm::vec3{0.5f, -0.5f, 0.0f}, glm::vec4{0.0f, 1.0f, 0.0f, 1.0f}, glm::vec2{1.0f, 0.0f}},
             {glm::vec3{-0.5f, -0.5f, 0.0f}, glm::vec4{0.0f, 0.0f, 1.0f, 1.0f}, glm::vec2{0.5f, 1.0f}}
+        };
+
+        indices =
+        {
+            0, 1, 2
         };
 
         shaderProgram();
@@ -115,16 +121,22 @@ struct Shader {
 
     void shaderBuffer () 
     {
-        // Generate and Bind Vertex Array Object (VAO) and Vertex Buffer Object (VBO)
-        glGenVertexArrays(1, &VAO);
-        glGenBuffers(1, &VBO);
+        // Generate and Bind Vertex Buffers
+        glGenVertexArrays(1, &VAO); // Vertex Array Object (VAO) 
+        glGenBuffers(1, &VBO);      // Vertex Buffer Object (VBO) : vertices
+        glGenBuffers(1, &EBO);      // Element Buffer Object (EBO) : index
 
         glBindVertexArray(VAO);
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
+        // VBO
         /* Creates a vertex buffer, allocates memory for storing vertex data, uploads the vertex data to the GPU, 
         and specifies that this data is for static use. */
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
         glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
+
+        // EBO
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(int), indices.data(), GL_STATIC_DRAW);
 
         // Vertex attribute pointers = layout, vecn, type, normalized, stride, first pointer
         // Position
@@ -149,8 +161,8 @@ struct Shader {
         // Bind the VAO
         glBindVertexArray(VAO);
 
-        glDrawArrays(GL_TRIANGLES, 0, vertices.size());
-        // glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+        // glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+        glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
     }
 
     // utility uniform functions
