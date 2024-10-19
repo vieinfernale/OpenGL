@@ -87,10 +87,10 @@ int main()
     }
 
     /* Texture */
-    unsigned int texture = loadTexture("./Archive/Images/Img.jpg");
+    unsigned int texture = loadTexture("../../Archive/Images/Img.jpg");
 
     /* Shader */
-    Shader Shader("./GLSL/vertex_shader.glsl", "./GLSL/fragment_shader.glsl");
+    Shader Shader("vertex_shader.glsl", "fragment_shader.glsl");
 
     /* Window Loop */
     while (!glfwWindowShouldClose(window))
