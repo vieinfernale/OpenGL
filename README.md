@@ -10,7 +10,7 @@
 - Functions: [GLEW](https://glew.sourceforge.net/) 
 - Windows Libraries: [Microsoft Documentation](https://learn.microsoft.com/en-us/search/)
 - Math: [GLM](https://github.com/g-truc/glm)
-- Model Loading: [Assimp](https://github.com/assimp/assimp)
+- 3D Models: [Assimp](https://github.com/assimp/assimp)
 - Images: [stb_image](https://github.com/nothings/stb/blob/master/stb_image.h)
 
 ## Headers and Libraries
