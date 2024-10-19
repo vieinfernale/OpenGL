@@ -95,3 +95,12 @@ pause
     - glew32.lib;
     - Opengl: opengl32.lib;
     - Windows Libraries: User32.lib; Gdi32.lib; Shell32.lib;
+
+    # Code
+
+    ## VSCode
+    ### Function Parameters
+    - Select the function text and type ```Ctrl + Shift + P```
+    - Search for ```Show definition preview hover```
+    - Hover through the function to show the necessary parameters
+    - ```Ctrl + K + Ctrl + I``` also shows hover information

@@ -17,8 +17,8 @@
 // Vertex
 struct Vertex {
     glm::vec3 Position;    // layout (location = 0) position
-    glm::vec4 Color;    // layout (location = 1) color
-    glm::vec2 Tex;    // layout (location = 2) textures
+    glm::vec4 Color;       // layout (location = 1) color
+    glm::vec2 Tex;         // layout (location = 2) textures
 };
 
 // Shader
@@ -41,8 +41,8 @@ struct Shader {
         vertices = 
         {
             {glm::vec3{0.0f, 0.5f, 0.0f}, glm::vec4{1.0f, 0.0f, 0.0f, 1.0f}, glm::vec2{0.0f, 0.0f}},
-            {glm::vec3{0.5f, -0.5f, 0.0f}, glm::vec4{0.0f, 1.0f, 0.0f, 1.0f}, glm::vec2{1.0f, 1.0f}},
-            {glm::vec3{-0.5f, -0.5f, 0.0f}, glm::vec4{0.0f, 0.0f, 1.0f, 1.0f}, glm::vec2{0.0f, 1.0f}}
+            {glm::vec3{0.5f, -0.5f, 0.0f}, glm::vec4{0.0f, 1.0f, 0.0f, 1.0f}, glm::vec2{1.0f, 0.0f}},
+            {glm::vec3{-0.5f, -0.5f, 0.0f}, glm::vec4{0.0f, 0.0f, 1.0f, 1.0f}, glm::vec2{0.5f, 1.0f}}
         };
 
         shaderProgram();
@@ -115,7 +115,7 @@ struct Shader {
 
     void shaderBuffer () 
     {
-        // Generate and bind the Vertex Array Object (VAO) and Vertex Buffer Object (VBO)
+        // Generate and Bind Vertex Array Object (VAO) and Vertex Buffer Object (VBO)
         glGenVertexArrays(1, &VAO);
         glGenBuffers(1, &VBO);
 
@@ -126,13 +126,14 @@ struct Shader {
         and specifies that this data is for static use. */
         glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
 
-        // Vertex attribute pointers = layout, vecn, type, normalized, data size, first pointer
+        // Vertex attribute pointers = layout, vecn, type, normalized, stride, first pointer
+        // Position
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Position));
         glEnableVertexAttribArray(0);
-
+        // Color
         glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Color));
         glEnableVertexAttribArray(1);
-
+        // Texture
         glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Tex));
         glEnableVertexAttribArray(2);
 
@@ -149,6 +150,24 @@ struct Shader {
         glBindVertexArray(VAO);
 
         glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+        // glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+    }
+
+    // utility uniform functions
+    // ------------------------------------------------------------------------
+    void setBool(const std::string& name, bool value) const
+    {         
+        glUniform1i(glGetUniformLocation(shaderProgramID, name.c_str()), (int)value); 
+    }
+    // ------------------------------------------------------------------------
+    void setInt(const std::string& name, int value) const
+    { 
+        glUniform1i(glGetUniformLocation(shaderProgramID, name.c_str()), value); 
+    }
+    // ------------------------------------------------------------------------
+    void setFloat(const std::string& name, float value) const
+    { 
+        glUniform1f(glGetUniformLocation(shaderProgramID, name.c_str()), value); 
     }
 
     // Destructor
