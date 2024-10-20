@@ -31,14 +31,8 @@ unsigned int loadTexture (const std::string& imageFilePath)
 
     // Process image
     if (imageData != NULL) {
-        std::cout << width << height << nChannels << std::endl;
-        // Check format
         unsigned int format = (nChannels == 4) ? GL_RGBA : GL_RGB;
-        std::cout << format << " " << GL_RGB << std::endl;
-        // Upload texture to OpenGL
-        /* 2D Texture, 0 - normal 1,2... - small mipmaps, color RGB/RGBA, border=0, color = unsigned bytes, image data pointer */
         glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, imageData); 
-        // Generate Mipmaps: smaller images with lower resolutions
         glGenerateMipmap(GL_TEXTURE_2D);
     } else {
         std::cout << "Failed to load the image: " << imageFilePath << std::endl;

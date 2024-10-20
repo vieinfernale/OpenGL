@@ -86,6 +86,11 @@ int main()
         return -1;
     }
 
+    /* Get OpenGL version
+    const unsigned char* version = glGetString(GL_VERSION);
+    std::cout << "OpenGL version supported: " << version << std::endl;
+    */
+
     /* Texture */
     unsigned int texture = loadTexture("./archive/Images/Img.jpg");
 
