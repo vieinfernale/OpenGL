@@ -4,6 +4,7 @@
 - [Visual Studio](https://visualstudio.microsoft.com/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Mingw-w64](https://www.mingw-w64.org/downloads/)
+- [GLSLang](https://github.com/KhronosGroup/glslang)
 
 ## Libraries
 - Window: [GLFW](https://www.glfw.org/download.html)
@@ -13,6 +14,24 @@
 - Math: [GLM](https://github.com/g-truc/glm)
 - 3D Models: [Assimp](https://github.com/assimp/assimp)
 - Shader Compiler: [GLSLang](https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/)
+
+## Repository
+
+```bash
+/archive           Old code
+/include           Header files (.h)
+/lib               Library files (.lib .a)
+/bin               Shader Compiler (glslang.exe)
+/shaders           Shaders (.glsl)
+.gitattributes     
+.gitignore         
+App.cpp            C++ / OpenGL
+App.exe            
+Build.cmd          Compiler CMD Script   
+README.md
+Shader.h           Shader
+Texture.h          Texture
+```
 
 ## Headers and Libraries
 
@@ -34,7 +53,8 @@
 #define STB_IMAGE_IMPLEMENTATION      // Compile stb_image (include only inside Textures.h)
 #include <stb_image/stb_image.h>      // Include stb_image for textures
 
-#include "Shader.h"              // Shader code
+#include "Shader.h"              // Shader
+#include "Texture.h"             // Texture
 
 #include <iostream>              // STD Libraries
 #include <vector>
