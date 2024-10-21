@@ -111,10 +111,10 @@ int main()
         /* Texture */
         // glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture);
+        Shader.bindUniformInt("fsTex", 0); 
 
         /* Shader */
         Shader.shaderDraw();
-        // Shader.setInt("fsTex", 0); 
 
         // Render and Frozen screen
         glfwSwapBuffers(window);

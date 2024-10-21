@@ -2,11 +2,12 @@
 ## Visual Studio
 .vs/
 .vscode/
-bin/
-bin-int/
+# bin/
 
 # Files
-*.exe
+# *.exe
+# Compiled shaders
+*.spv
 ## Visual Studio
 *.vcxproj
 *.vcxproj.user

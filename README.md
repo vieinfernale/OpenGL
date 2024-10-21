@@ -9,9 +9,10 @@
 - Window: [GLFW](https://www.glfw.org/download.html)
 - Functions: [GLEW](https://glew.sourceforge.net/) 
 - Windows Libraries: [Microsoft Documentation](https://learn.microsoft.com/en-us/search/)
+- Images: [stb_image](https://github.com/nothings/stb/blob/master/stb_image.h)
 - Math: [GLM](https://github.com/g-truc/glm)
 - 3D Models: [Assimp](https://github.com/assimp/assimp)
-- Images: [stb_image](https://github.com/nothings/stb/blob/master/stb_image.h)
+- Shader Compiler: [GLSLang](https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/)
 
 ## Headers and Libraries
 

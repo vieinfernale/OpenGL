@@ -17,10 +17,10 @@ unsigned int loadTexture (const std::string& imageFilePath)
     glGenTextures(1, &textureID);
     glBindTexture(GL_TEXTURE_2D, textureID);
 
-    // Texture filtering
+    // Texture options
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // S-axis Horizontal
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // T-axis Vertical
-    // Minification: Texture is displayed smaller than its original size; involves sampling algorithms to determine texel colors
+    // Minification: Texture is displayed smaller than its original size; involves retriever algorithms to determine texel colors
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); 
     // Magnification: Texture is displayed larger than its original size; involves sampling algorithms to determine texel colors
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);

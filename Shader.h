@@ -38,17 +38,19 @@ struct Shader {
         vertexShader = shaderRead(vertexShaderPath);
         fragmentShader = shaderRead(fragmentShaderPath);
 
-        // Intialize vertices with vertex data {position, color, texture}
+        // Intialize vertices with vertex data {position, color, texture} = Input for the Vertex Shader
         vertices = 
         {
-            {glm::vec3{0.0f, 0.5f, 0.0f}, glm::vec4{1.0f, 0.0f, 0.0f, 1.0f}, glm::vec2{0.0f, 0.0f}},
-            {glm::vec3{0.5f, -0.5f, 0.0f}, glm::vec4{0.0f, 1.0f, 0.0f, 1.0f}, glm::vec2{1.0f, 0.0f}},
-            {glm::vec3{-0.5f, -0.5f, 0.0f}, glm::vec4{0.0f, 0.0f, 1.0f, 1.0f}, glm::vec2{0.5f, 1.0f}}
+            {glm::vec3{-0.5f, -0.5f, 0.0f}, glm::vec4{1.0f, 0.0f, 0.0f, 1.0f}, glm::vec2{0.0f, 1.0f}},
+            {glm::vec3{-0.5f, 0.5f, 0.0f}, glm::vec4{0.0f, 1.0f, 0.0f, 1.0f}, glm::vec2{0.0f, 0.0f}},
+            {glm::vec3{0.5f, 0.5f, 0.0f}, glm::vec4{0.0f, 0.0f, 1.0f, 1.0f}, glm::vec2{1.0f, 0.0f}},
+            {glm::vec3{0.5f, -0.5f, 0.0f}, glm::vec4{0.0f, 0.0f, 1.0f, 1.0f}, glm::vec2{1.0f, 1.0f}},
         };
 
         indices =
         {
-            0, 1, 2
+            0, 1, 2,
+            2, 3, 0
         };
 
         shaderProgram();
@@ -165,19 +167,18 @@ struct Shader {
         glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
     }
 
-    // utility uniform functions
-    // ------------------------------------------------------------------------
-    void setBool(const std::string& name, bool value) const
+    // Bind Uniform 1D
+    void bindUniformBool(const std::string& name, bool value)
     {         
         glUniform1i(glGetUniformLocation(shaderProgramID, name.c_str()), (int)value); 
     }
-    // ------------------------------------------------------------------------
-    void setInt(const std::string& name, int value) const
+
+    void bindUniformInt(const std::string& name, int value)
     { 
         glUniform1i(glGetUniformLocation(shaderProgramID, name.c_str()), value); 
     }
-    // ------------------------------------------------------------------------
-    void setFloat(const std::string& name, float value) const
+
+    void bindUniformFloat(const std::string& name, float value)
     { 
         glUniform1f(glGetUniformLocation(shaderProgramID, name.c_str()), value); 
     }

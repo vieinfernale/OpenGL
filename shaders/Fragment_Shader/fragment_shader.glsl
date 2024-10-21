@@ -1,13 +1,14 @@
-#version 450 core
+#version 460 core
 
-// Input from the vertex shader
-in vec4 vsColor;
-in vec2 vsTex;
+layout(location = 0) in vec3 Position;  // Input from vertex shader
+layout(location = 1) in vec4 Color;     
+layout(location = 2) in vec2 Tex;       
 
-out vec4 fsColor;
-uniform sampler2D fsTex; // uniform variable of the texture bound 
+layout(location = 0) out vec4 fsTextureColor;  // Output to the framebuffer
+
+layout(binding = 0) uniform sampler2D fsTex;   // Uniform (Global Shader Variable) Texture (type sampler) 
 
 void main() 
 {
-    fsColor = texture(fsTex, vsTex);
+    fsTextureColor = texture(fsTex, Tex);      // Color (drawing) retrieved : bound texture (fsTex), coordinates (Tex)
 }
