@@ -18,7 +18,7 @@
 ## Repository
 
 ```bash
-/archive           Old code
+/archive           Old code + Imgs + 3DModels
 /include           Header files (.h)
 /lib               Library files (.lib .a)
 /bin               Shader Compiler (glslang.exe)
